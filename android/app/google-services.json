@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "336823090637",
+    "firebase_url": "https://reserve-it-62f58.firebaseio.com",
+    "project_id": "reserve-it-62f58",
+    "storage_bucket": "reserve-it-62f58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336823090637:android:2bd9eabc314d0532555884",
+        "android_client_info": {
+          "package_name": "com.example.hotelreservation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336823090637-5sgd7hrpdn28kvlg3h19hkorc4aphr6n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hotelreservation",
+            "certificate_hash": "deeee155e9cdfe095169b3fc5a74bb9c92b2c44b"
+          }
+        },
+        {
+          "client_id": "336823090637-62holn84matmo33dm3eqhc3aihgaakcu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCblS0ppPZgZxcO_R37MIRRCkNh89I-jRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336823090637-62holn84matmo33dm3eqhc3aihgaakcu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336823090637:android:f616df3099ceb1df555884",
+        "android_client_info": {
+          "package_name": "com.example.reserve_it"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336823090637-62holn84matmo33dm3eqhc3aihgaakcu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCblS0ppPZgZxcO_R37MIRRCkNh89I-jRs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336823090637-62holn84matmo33dm3eqhc3aihgaakcu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
