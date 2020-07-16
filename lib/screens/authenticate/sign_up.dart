@@ -1,20 +1,21 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:reserve_it/hotel_app_theme.dart';
-import "package:font_awesome_flutter/font_awesome_flutter.dart";
 import 'package:reserve_it/services/auth.dart';
 
-class SignIn extends StatefulWidget {
-  final Function toggleView;
-  SignIn({this.toggleView});
+import '../../hotel_app_theme.dart';
 
+class SignUp extends StatefulWidget {
+  final Function toggleView;
+
+  SignUp({this.toggleView});
   @override
-  _SignInState createState() => _SignInState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignUpState extends State<SignUp> {
   final AuthService _auth = AuthService();
-  //text field state
-
+  final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
   @override
@@ -28,13 +29,13 @@ class _SignInState extends State<SignIn> {
                 onPressed: () {
                   widget.toggleView();
                 },
-                icon: Icon(Icons.person_add),
-                label: Text("Sign up")),
+                icon: Icon(Icons.person),
+                label: Text("Sign in")),
           ],
           elevation: 0,
           backgroundColor: Colors.transparent,
           title: Text(
-            'Sign in',
+            'Sign Up',
             style: TextStyle(
               color: Colors.black54,
             ),
@@ -43,12 +44,14 @@ class _SignInState extends State<SignIn> {
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
           child: Form(
+            key: _formKey,
             child: Column(
               children: [
                 SizedBox(
                   height: 20.0,
                 ),
                 TextFormField(
+                  validator: (val) => val.isEmpty ? 'Enter an Email' : null,
                   onChanged: (val) {
                     setState(() => email = val);
                   },
@@ -57,6 +60,9 @@ class _SignInState extends State<SignIn> {
                   height: 20.0,
                 ),
                 TextFormField(
+                  validator: (val) => val.length < 6
+                      ? 'the password is less thn 5 characters'
+                      : null,
                   obscureText: true,
                   onChanged: (val) {
                     setState(() => password = val);
@@ -68,8 +74,9 @@ class _SignInState extends State<SignIn> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   onPressed: () async {
-                    print(email);
-                    print(password);
+                    if (_formKey.currentState.validate()) {
+                      print('vaaaaaaaaalid');
+                    }
                   },
                   color: Colors.purple[600],
                   child: Text(
@@ -83,15 +90,5 @@ class _SignInState extends State<SignIn> {
         ),
       ),
     );
-  }
-
-  void signIn() async {
-    dynamic result = await _auth.signInAnon();
-    if (result == null) {
-      print('error signin in');
-    } else {
-      print('signed in');
-      print(result);
-    }
   }
 }

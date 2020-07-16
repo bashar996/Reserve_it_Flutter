@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:reserve_it/models/landing_slider.dart';
 import 'package:flutter/rendering.dart';
 
-class Home extends StatefulWidget {
+class Landing extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _Landing createState() => _Landing();
 }
 
-class _HomeState extends State<Home> {
+class _Landing extends State<Landing> {
   List<SliderModel> slides = new List<SliderModel>();
   int currentIndex = 0;
   @override

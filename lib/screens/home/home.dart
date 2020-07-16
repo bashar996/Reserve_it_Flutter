@@ -16,6 +16,7 @@ class HotelHomeScreen extends StatefulWidget {
 
 class _HotelHomeScreenState extends State<HotelHomeScreen>
     with TickerProviderStateMixin {
+  final AuthService _auth = AuthService();
   AnimationController animationController;
   List<HotelListData> hotelList = HotelListData.hotelList;
   final ScrollController _scrollController = ScrollController();
@@ -118,6 +119,13 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                   ],
                 ),
               ),
+              RaisedButton.icon(
+                onPressed: () async {
+                  await _auth.signOut();
+                },
+                label: Text('Sign out'),
+                icon: Icon(Icons.person),
+              )
             ],
           ),
         ),
