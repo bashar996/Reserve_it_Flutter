@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:reserve_it/filters_screen.dart';
 import 'package:reserve_it/hotel_app_theme.dart';
+import 'package:reserve_it/services/auth.dart';
 
 class HotelHomeScreen extends StatefulWidget {
   @override
@@ -569,7 +570,10 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                       borderRadius: const BorderRadius.all(
                         Radius.circular(32.0),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        //tapping the Heart Button
+                        // to change color https://stackoverflow.com/questions/55091272/how-to-change-color-of-iconbutton-after-pressed-in-flutter
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Icon(Icons.favorite_border),
