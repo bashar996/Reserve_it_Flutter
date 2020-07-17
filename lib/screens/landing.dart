@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:reserve_it/models/landing_slider.dart';
 import 'package:flutter/rendering.dart';
-import 'package:reserve_it/screens/authenticate/sign_in.dart';
 import 'package:reserve_it/screens/authenticate/sign_up.dart';
 
 class Landing extends StatefulWidget {

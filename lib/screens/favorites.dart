@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:reserve_it/hotel_app_theme.dart';
-import 'package:reserve_it/hotel_list_view.dart';
-import 'package:reserve_it/models/hotel_list_data.dart';
 
 class Favorites extends StatefulWidget {
   @override
