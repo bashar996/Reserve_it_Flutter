@@ -20,15 +20,12 @@ class HotelHomeScreen extends StatefulWidget {
 
 class _HotelHomeScreenState extends State<HotelHomeScreen>
     with TickerProviderStateMixin {
-  final AuthService _auth = AuthService();
   AnimationController animationController;
   List<HotelListData> hotelList = HotelListData.hotelList;
   final ScrollController _scrollController = ScrollController();
 
   DateTime startDate = DateTime.now();
   DateTime endDate = DateTime.now().add(const Duration(days: 5));
-  int currIndex = 0;
-  final List<Widget> _children = [HotelHomeScreen(), Favorites(), Settings()];
 
   @override
   void initState() {
@@ -125,17 +122,6 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                   ],
                 ),
               ),
-              // Align(
-              //   alignment: Alignment.bottomLeft,
-              //   child: myBottomNavBar(),
-              // ),
-              RaisedButton.icon(
-                onPressed: () async {
-                  await _auth.signOut();
-                },
-                label: Text('Sign out'),
-                icon: Icon(Icons.person),
-              )
             ],
           ),
         ),

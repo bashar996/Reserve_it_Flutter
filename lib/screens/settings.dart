@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:reserve_it/hotel_app_theme.dart';
+import 'package:reserve_it/services/auth.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -8,6 +9,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -102,6 +104,16 @@ class _SettingsState extends State<Settings> {
                       ),
                     ),
                     Divider(),
+                    Center(
+                      child: RaisedButton.icon(
+                        onPressed: () async {
+                          await _auth.signOut();
+                        },
+                        label: Text('Sign out'),
+                        color: Colors.purple[300],
+                        icon: Icon(Icons.person),
+                      ),
+                    ),
                   ],
                 ),
               ),

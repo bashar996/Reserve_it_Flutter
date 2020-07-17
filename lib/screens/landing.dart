@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:reserve_it/models/landing_slider.dart';
 import 'package:flutter/rendering.dart';
 import 'package:reserve_it/screens/authenticate/sign_in.dart';
+import 'package:reserve_it/screens/authenticate/sign_up.dart';
 
 class Landing extends StatefulWidget {
   @override
@@ -104,7 +105,7 @@ class _Landing extends State<Landing> {
               onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SignIn(),
+                    builder: (context) => SignUp(),
                   )),
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),

@@ -3,12 +3,12 @@ import 'package:reserve_it/screens/favorites.dart';
 import 'package:reserve_it/screens/home/home.dart';
 import 'package:reserve_it/screens/settings.dart';
 
-class myBottomNavBar extends StatefulWidget {
+class MyBottomNavBar extends StatefulWidget {
   @override
-  _myBottomNavBarState createState() => _myBottomNavBarState();
+  _MyBottomNavBarState createState() => _MyBottomNavBarState();
 }
 
-class _myBottomNavBarState extends State<myBottomNavBar> {
+class _MyBottomNavBarState extends State<MyBottomNavBar> {
   int _currIndex = 0;
   final List<Widget> _children = [HotelHomeScreen(), Favorites(), Settings()];
   void onItemTap(int index) {
