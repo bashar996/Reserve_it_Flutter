@@ -8,7 +8,10 @@ import 'package:intl/intl.dart';
 import 'package:reserve_it/filters_screen.dart';
 import 'package:reserve_it/hotel_app_theme.dart';
 import 'package:reserve_it/screens/room.dart';
+import 'package:reserve_it/screens/settings.dart';
 import 'package:reserve_it/services/auth.dart';
+
+import '../favorites.dart';
 
 class HotelHomeScreen extends StatefulWidget {
   @override
@@ -24,6 +27,8 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
 
   DateTime startDate = DateTime.now();
   DateTime endDate = DateTime.now().add(const Duration(days: 5));
+  int currIndex = 0;
+  final List<Widget> _children = [HotelHomeScreen(), Favorites(), Settings()];
 
   @override
   void initState() {
@@ -106,23 +111,11 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                               (1 / count) * index, 1.0,
                                               curve: Curves.fastOutSlowIn)));
                               animationController.forward();
-                              return InkWell(
-                                onTap: () {
-                                  print('I was pressed');
-
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //       builder: (context) =>
-                                  //           HotelDetailsPage(),
-                                  //     ));
-                                },
-                                child: HotelListView(
-                                  callback: () {},
-                                  hotelData: hotelList[index],
-                                  animation: animation,
-                                  animationController: animationController,
-                                ),
+                              return HotelListView(
+                                callback: () {},
+                                hotelData: hotelList[index],
+                                animation: animation,
+                                animationController: animationController,
                               );
                             },
                           ),
@@ -132,6 +125,10 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                   ],
                 ),
               ),
+              // Align(
+              //   alignment: Alignment.bottomLeft,
+              //   child: myBottomNavBar(),
+              // ),
               RaisedButton.icon(
                 onPressed: () async {
                   await _auth.signOut();
