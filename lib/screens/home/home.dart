@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:reserve_it/filters_screen.dart';
 import 'package:reserve_it/hotel_app_theme.dart';
+import 'package:reserve_it/screens/room.dart';
 import 'package:reserve_it/services/auth.dart';
 
 class HotelHomeScreen extends StatefulWidget {
@@ -105,11 +106,23 @@ class _HotelHomeScreenState extends State<HotelHomeScreen>
                                               (1 / count) * index, 1.0,
                                               curve: Curves.fastOutSlowIn)));
                               animationController.forward();
-                              return HotelListView(
-                                callback: () {},
-                                hotelData: hotelList[index],
-                                animation: animation,
-                                animationController: animationController,
+                              return InkWell(
+                                onTap: () {
+                                  print('I was pressed');
+
+                                  // Navigator.push(
+                                  //     context,
+                                  //     MaterialPageRoute(
+                                  //       builder: (context) =>
+                                  //           HotelDetailsPage(),
+                                  //     ));
+                                },
+                                child: HotelListView(
+                                  callback: () {},
+                                  hotelData: hotelList[index],
+                                  animation: animation,
+                                  animationController: animationController,
+                                ),
                               );
                             },
                           ),

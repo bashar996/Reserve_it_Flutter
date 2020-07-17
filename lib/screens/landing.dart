@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:reserve_it/models/landing_slider.dart';
 import 'package:flutter/rendering.dart';
+import 'package:reserve_it/screens/authenticate/sign_in.dart';
 
 class Landing extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class Landing extends StatefulWidget {
 class _Landing extends State<Landing> {
   List<SliderModel> slides = new List<SliderModel>();
   int currentIndex = 0;
+  PageController pageController = new PageController(initialPage: 0);
   @override
   void initState() {
     // TODO: implement initState
@@ -61,10 +63,12 @@ class _Landing extends State<Landing> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  InkWell(
-                    onTap: () {},
-                    enableFeedback: true,
-                    splashColor: Colors.purple[600],
+                  GestureDetector(
+                    onTap: () {
+                      pageController.animateToPage(slides.length - 1,
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.linear);
+                    },
                     child: Text(
                       'Skip',
                       style: TextStyle(
@@ -80,8 +84,12 @@ class _Landing extends State<Landing> {
                             : PageIndexIndecator(false)
                     ],
                   ),
-                  InkWell(
-                    onTap: () {},
+                  GestureDetector(
+                    onTap: () {
+                      pageController.animateToPage(currentIndex + 1,
+                          duration: Duration(milliseconds: 400),
+                          curve: Curves.linear);
+                    },
                     child: Text(
                       'NEXT',
                       style: TextStyle(
@@ -92,13 +100,24 @@ class _Landing extends State<Landing> {
                 ],
               ),
             )
-          : Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-              child: Container(
-                alignment: Alignment.center,
-                color: Colors.purple[500],
-                width: MediaQuery.of(context).size.width,
-                height: Platform.isIOS ? 70 : 60,
+          : GestureDetector(
+              onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SignIn(),
+                  )),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                child: Container(
+                  alignment: Alignment.center,
+                  color: Colors.purple[500],
+                  width: MediaQuery.of(context).size.width,
+                  height: Platform.isIOS ? 70 : 60,
+                  child: Text(
+                    'Let\'s get Started!!',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                ),
               ),
             ),
     );

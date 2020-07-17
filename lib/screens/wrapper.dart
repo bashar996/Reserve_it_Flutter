@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:reserve_it/screens/authenticate/authenticate.dart';
 import 'package:reserve_it/screens/home/home.dart';
 import "package:reserve_it/models/user.dart";
+import 'package:reserve_it/screens/landing.dart';
 
 class Wrapper extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class Wrapper extends StatelessWidget {
 
     //return either HotelHomeScreen or authenticate widget
     if (user == null) {
-      return Authenticate();
+      return Landing();
     } else {
       return HotelHomeScreen();
     }
